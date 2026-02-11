@@ -34,6 +34,3 @@ An AI-powered personal scheduler with conflict resolution, built in Java.
 
 ## Contributing
 Pull requests and suggestions are welcome!
-
-## License
-MIT (or specify your preferred license) 
