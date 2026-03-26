@@ -1,8 +1,46 @@
-# AI Personal Scheduler
+# 🤖 AI Personal Scheduler
 
-A modern, full-stack AI-powered personal scheduling application with intelligent conflict resolution.
+> **Intelligent scheduling that works around your life, not against it**
 
-## 🏗️ Project Structure
+A modern, full-stack AI-powered personal scheduling application that automatically detects and resolves scheduling conflicts using intelligent algorithms. Built with Next.js 15 and Spring Boot 3.2, it combines a beautiful SaaS-inspired interface with smart conflict resolution to help you manage your time more effectively.
+
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
+[![Next.js](https://img.shields.io/badge/Next.js-15-black)](https://nextjs.org/)
+[![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.2-green)](https://spring.io/projects/spring-boot)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-blue)](https://www.typescriptlang.org/)
+
+## ✨ Why This Matters
+
+Traditional calendar apps force you to manually resolve conflicts. **AI Personal Scheduler** automatically:
+- 🧠 **Detects conflicts** across your schedule in real-time
+- 💡 **Suggests optimal solutions** based on your priorities
+- 🔄 **Adapts to your patterns** for smarter scheduling over time
+- 📱 **Provides a seamless experience** across desktop and mobile
+
+Perfect for busy professionals, students, and anyone juggling multiple commitments.
+
+## � Demo & Screenshots
+
+### 🌐 Live Demo
+> **Coming Soon!** The application is currently in active development.
+
+### 📸 Key Features in Action
+
+#### Dashboard Overview
+*![Dashboard showing today's schedule and animated stats](docs/screenshots/dashboard.png)*
+
+#### AI Conflict Resolution
+*![AI-powered conflict detection and resolution suggestions](docs/screenshots/conflict-resolution.png)*
+
+#### Task Management
+*![Advanced filtering and search interface](docs/screenshots/task-management.png)*
+
+#### Timeline Scheduler
+*![Drag-and-drop scheduling interface](docs/screenshots/scheduler-timeline.png)*
+
+> **Note:** Screenshots will be added as the UI components are finalized. The application features a modern, dark-mode-first design inspired by Linear and Notion.
+
+## �🏗️ Project Structure
 
 ```
 Ai-Personal-Scheduler/
