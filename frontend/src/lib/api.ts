@@ -100,40 +100,60 @@ const mockConflicts: Conflict[] = [
 export const api = {
   // Tasks
   getTasks: async (): Promise<Task[]> => {
-    await new Promise(resolve => setTimeout(resolve, 500))
-    return mockTasks
+    try {
+      const response = await fetch('http://localhost:8080/api/tasks')
+      if (!response.ok) throw new Error('Failed to fetch tasks')
+      return await response.json()
+    } catch (error) {
+      console.error('Error fetching tasks:', error)
+      return []
+    }
   },
 
   createTask: async (task: Omit<Task, "id" | "createdAt" | "updatedAt">): Promise<Task> => {
-    await new Promise(resolve => setTimeout(resolve, 300))
-    const newTask: Task = {
-      ...task,
-      id: Math.random().toString(36).substr(2, 9),
-      createdAt: new Date(),
-      updatedAt: new Date()
+    try {
+      const response = await fetch('http://localhost:8080/api/tasks', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(task),
+      })
+      if (!response.ok) throw new Error('Failed to create task')
+      return await response.json()
+    } catch (error) {
+      console.error('Error creating task:', error)
+      throw error
     }
-    mockTasks.push(newTask)
-    return newTask
   },
 
   updateTask: async (id: string, updates: Partial<Task>): Promise<Task> => {
-    await new Promise(resolve => setTimeout(resolve, 300))
-    const taskIndex = mockTasks.findIndex(t => t.id === id)
-    if (taskIndex === -1) throw new Error("Task not found")
-    
-    mockTasks[taskIndex] = {
-      ...mockTasks[taskIndex],
-      ...updates,
-      updatedAt: new Date()
+    try {
+      const response = await fetch(`http://localhost:8080/api/tasks/${id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(updates),
+      })
+      if (!response.ok) throw new Error('Failed to update task')
+      return await response.json()
+    } catch (error) {
+      console.error('Error updating task:', error)
+      throw error
     }
-    return mockTasks[taskIndex]
   },
 
   deleteTask: async (id: string): Promise<void> => {
-    await new Promise(resolve => setTimeout(resolve, 300))
-    const taskIndex = mockTasks.findIndex(t => t.id === id)
-    if (taskIndex === -1) throw new Error("Task not found")
-    mockTasks.splice(taskIndex, 1)
+    try {
+      const response = await fetch(`http://localhost:8080/api/tasks/${id}`, {
+        method: 'DELETE',
+      })
+      if (!response.ok) throw new Error('Failed to delete task')
+    } catch (error) {
+      console.error('Error deleting task:', error)
+      throw error
+    }
   },
 
   // Categories
